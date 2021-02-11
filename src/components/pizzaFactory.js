@@ -5,6 +5,7 @@ import {HawiianPizza} from './hawiianPizza';
 import {MeatFeastPizza} from './meatFeastPizza';
 import {VeggieDeLuxePizza} from './veggieDeluxePizza';
 import {RiskQuestion} from './riskQuestion';
+import {PersonalRiskQuestion} from './personalRiskQuestion';
 import {YesNoDetails} from './yesNoDetails';
 import {SummaryQuestion} from './summaryQuestion';
 
@@ -16,6 +17,7 @@ export const PizzaFactory = ({order, ...props}) =>{
         hawiian: (options) => <MeatFeastPizza key={options.id} options={options}/>,
         veggie: (options) => <VeggieDeLuxePizza key={options.id} options={options}/>,
         riskQuestion: (options) => <RiskQuestion key={options.id} options={options}/>,
+        personalRiskQuestion: (options) => <PersonalRiskQuestion key={options.id} options={options}/>,
         yesNoDetails: (options) => <YesNoDetails key={options.id} options={options}/>,
         summaryQuestion: (options) => <SummaryQuestion key={options.id} options={options}/>,
     };
