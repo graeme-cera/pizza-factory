@@ -1,0 +1,90 @@
+.question-row.visitScheduleQuestion {
+    &>.visitScheduler {
+        width: 100%;
+        max-width: 16rem;
+        margin: 0 0.25rem 0 0;
+        padding: 0.5rem;
+        display: grid;
+        grid-template-areas: '. caption' 'startTime--label startTime--ctrl' 'endTime--label endTime--ctrl' 'numberOfCarers--label numberOfCarers--ctrl';
+        grid-template-rows: auto auto auto auto;
+        grid-template-columns: 8rem 8rem;
+        grid-row-gap: 0rem;
+        height: 6rem;
+        .visitScheduler-caption {
+            grid-area: caption;
+            text-align: center;
+            padding: 0.25rem 0;
+            margin-bottom: 0.25rem;
+            color: darkgrey;
+        }
+        .visitScheduler-startTime--label {
+            grid-area: startTime--label;
+            line-height: 1.25rem;
+        }
+        .visitScheduler-startTime--ctrl {
+            grid-area: startTime--ctrl;
+            height: 1.25rem;
+            outline: none;
+        }
+        .visitScheduler-endTime--label {
+            grid-area: endTime--label;
+            line-height: 1.25rem;
+        }
+        .visitScheduler-endTime--ctrl {
+            grid-area: endTime--ctrl;
+            height: 1.25rem;
+            outline: none;
+            border-top: none;
+            border-bottom: none;
+        }
+        .visitScheduler-numberOfCarers--label {
+            grid-area: numberOfCarers--label;
+            line-height: 1.25rem;
+            padding-top: 0.25rem;
+        }
+        .visitScheduler-numberOfCarers--ctrl {
+            grid-area: numberOfCarers--ctrl;
+            height: 1.25rem;
+        }
+        label {
+            &>i {
+                font-style: normal;
+                margin-right: 0.25rem;
+            }
+        }
+        .visitScheduler-summary {
+            display: none;
+        }
+    }
+    &:not(.disabled) {
+        .visitScheduler-numberOfCarers--ctrl:not([value=''])~.visitScheduler-caption {
+            color: black;
+            font-weight: bold;
+        }
+    }
+    &.disabled>.visitScheduler {
+        height: 2rem;
+        .visitScheduler-caption {
+            border: none;
+            text-align: center;
+            font-weight: normal;
+        }
+        .visitScheduler-startTime--label,
+        .visitScheduler-startTime--ctrl,
+        .visitScheduler-endTime--label,
+        .visitScheduler-endTime--ctrl,
+        .visitScheduler-numberOfCarers--label,
+        .visitScheduler-numberOfCarers--ctrl {
+            display: none;
+        }
+    }
+    .visitScheduler:not(:first-of-type) {
+        grid-template-columns: 0rem 8rem;
+        width: auto;
+        .visitScheduler-startTime--label,
+        .visitScheduler-endTime--label,
+        .visitScheduler-numberOfCarers--label {
+            display: none;
+        }
+    }
+}

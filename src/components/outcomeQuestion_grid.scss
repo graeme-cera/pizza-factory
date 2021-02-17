@@ -1,0 +1,19 @@
+.question-row.outcomeQuestion {
+    &>textarea {
+        width: 100%;
+        max-width: 25rem;
+        height: 2rem;
+        resize: none;
+        margin: 0 0.25rem 0 0;
+        padding: 0.5rem;
+        border: #ccc 1px solid;
+        transition: height 0.3s ease-in;
+        &.smaller {
+            max-width: 19.25rem;
+            margin-left: 0.25rem;
+        }
+    }
+    &:not(.disabled):focus-within>textarea {
+        height: 10rem;
+    }
+}

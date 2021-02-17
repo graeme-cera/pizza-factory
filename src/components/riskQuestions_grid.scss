@@ -1,0 +1,54 @@
+.question-row.riskQuestion,
+.question-row.personalRiskQuestion {
+    &>textarea {
+        width: 100%;
+        max-width: 35rem;
+        height: 2rem;
+        resize: none;
+        padding: 0.5rem;
+        border: #ccc 1px solid;
+        transition: height 0.3s ease-in;
+        &.smaller {
+            max-width: 19.25rem;
+            margin-left: 0.25rem;
+        }
+    }
+    &:not(.disabled):focus-within>textarea {
+        height: 10rem;
+    }
+    /* formats the HLM control */
+    &>.picker-HML {
+        width: 2rem;
+        height: 2rem;
+        padding: 0.5rem;
+        margin: 0 0.2rem;
+        text-align: center;
+        border: #aaa 1px solid;
+        &:not([value='']) {
+            font-weight: bold;
+        }
+        &[value='H'] {
+            background-color: red;
+            color: white;
+        }
+        &[value='M'] {
+            background-color: orange;
+            color: black;
+        }
+        &[value='L'] {
+            background-color: green;
+            color: white;
+        }
+        &[value='X'] {
+            background-color: darkgray;
+            color: white;
+        }
+    }
+}
+
+.question-row.personalRiskQuestion {
+    &>textarea {
+        width: 100%;
+        max-width: 30rem;
+    }
+}

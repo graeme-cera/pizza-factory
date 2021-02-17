@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Apercu Pro Regular';
+    font-style: normal;
+    font-display: swap;
+    src: url("//http://ceracare.co.uk/Assets/fonts/Apercu Pro Regular.ttf") format("truetype");
+}
+
+textarea,
+body {
+    font-family: 'Apercu Pro Regular';
+}
+
+.control-list {
+    max-width: 96%;
+    margin: 0 auto;
+}
+
+.formSection {
+    counter-reset: rowCount invalidCount validCount;
+    display: grid;
+    grid-template-columns: auto 8rem 8rem 8rem;
+    grid-template-rows: auto auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding: 0.5rem 0 0.5rem 1rem;
+    .formSection-label {
+        grid-area: 1 / 1 / 2 / 2;
+        text-align: left;
+    }
+    .formSection-counter--rowCount {
+        grid-area: 1 / 2 / 2 / 3;
+        text-align: center;
+        &::after {
+            content: counter(rowCount);
+        }
+    }
+    .formSection-counter--invalidCount {
+        grid-area: 1 / 3 / 2 / 4;
+        text-align: center;
+        &::after {
+            content: counter(invalidCount);
+        }
+    }
+    .formSection-counter--validCount {
+        grid-area: 1 / 4 / 2 / 5;
+        text-align: center;
+        &::after {
+            content: counter(validCount);
+        }
+    }
+    .formSection-questionsList {
+        grid-area: 2 / 1 / 3 / 5;
+        text-align: left;
+        overflow: hidden;
+        height: 0px;
+    }
+    .formSection-questionsList:focus-within,
+     :checked~.formSection-questionsList {
+        padding: 1rem 0;
+        margin: 1rem 0 0.5rem 0;
+        border-top: black 2px solid;
+        border-bottom: black 2px solid;
+        display: block;
+        height: auto;
+        overflow: unset;
+    }
+    .formSection-toggle--visible {
+        display: none;
+    }
+}
+
+.question-row {
+    border-bottom: #eee 2px solid;
+    margin: 0 0 0 0.5rem;
+    padding: 0.2rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    &>* {
+        order: 2;
+    }
+    &>.toggle-readonly {
+        order: 0;
+        margin-top: 0.6rem;
+    }
+    &>label {
+        order: 1;
+        width: 30rem;
+        margin: 0.5rem 1rem;
+    }
+    &:not(.disabled):focus-within>textarea {
+        height: 10rem;
+    }
+    &.disabled {
+        &>input {
+            background-color: #ccc;
+            opacity: 0.5;
+            &:not(:valid)~label.control-label {
+                color: black;
+            }
+        }
+        &>textarea {
+            background-color: #ccc;
+            opacity: 0.5;
+            &:not(:valid)~label.control-label {
+                color: black
+            }
+        }
+    }
+    &:not(.disabled) {
+        counter-increment: rowCount;
+        &:not(.disabled)>input:not([type='radio']):not([type='checkbox']) {
+            &:not(:valid) {
+                counter-increment: invalidCount;
+            }
+            &:valid {
+                counter-increment: validCount;
+            }
+        }
+        &:not(.disabled)>textarea {
+            &:not(:valid) {
+                counter-increment: invalidCount;
+            }
+            &:valid {
+                counter-increment: validCount;
+            }
+        }
+        input:valid,
+        textarea:valid {
+            background-color: rgba(0, 255, 0, 0.05);
+            &~label.control-label {
+                color: green;
+            }
+        }
+        input:not([type='radio']):not(:valid),
+        textarea:not(:valid) {
+            background-color: rgba(255, 0, 0, 0.05);
+            &~label.control-label {
+                color: red;
+            }
+        }
+        input:focus:not(:valid),
+        input:placeholder-shown:not(:valid),
+        textarea:focus:not(:valid),
+        textarea:placeholder-shown:not(:valid) {
+            background-color: rgba(255, 128, 0, 0.05);
+        }
+    }
+    .control-label {
+        position: relative;
+        &::after {
+            content: ': ';
+            margin-right: 1rem;
+        }
+    }
+}
