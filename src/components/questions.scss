@@ -25,6 +25,8 @@ label {
     .formSection-label {
         grid-area: 1 / 1 / 2 / 2;
         text-align: left;
+        font-size: 1rem;
+        font-weight: bolder;
     }
     .formSection-helpText {
         display: none;
