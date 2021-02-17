@@ -1,0 +1,15 @@
+.question-row.riskAssessedActivityQuestion {
+    &>textarea {
+        width: 100%;
+        max-width: 38.25rem;
+        height: 2rem;
+        resize: none;
+        margin: 0 0.25rem 0 0;
+        padding: 0.5rem;
+        border: #ccc 1px solid;
+        transition: height 0.3s ease-in;
+    }
+    &:not(.disabled):focus-within>textarea {
+        height: 30rem;
+    }
+}

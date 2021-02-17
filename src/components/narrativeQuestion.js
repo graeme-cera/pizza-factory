@@ -5,7 +5,7 @@ import './narrativeQuestion.scss';
 
 export const NarrativeQuestion = ({config, ...props}) =>{
 
-    const {id, name, label, shortCodes, responses} = {...config};
+    const {id, name, label, shortCodes, responses, ...overrides} = {...config};
 
     const [questionToggle, setQuestionToggle] = useState(responses.length !== 0);
     const [details, setDetails] = useState(helpers.getResponseValue(responses, `${name}_details`));
@@ -27,7 +27,9 @@ export const NarrativeQuestion = ({config, ...props}) =>{
                 placeholder='Please provide more details - [NA] /[ANA] / [CNA] or  [NR] / [ANR] / [CNR]'
                 shortCodes={shortCodes}
                 value={details} 
-                setValue={(value) => setDetails(value)}/>
+                setValue={(value) => setDetails(value)}
+                {...overrides}
+            />
 
             <label htmlFor={`${name}_${id}--toggle`} className='control-label'>{label}</label>
         </div>

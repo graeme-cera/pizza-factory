@@ -1,13 +1,12 @@
-@font-face {
-    font-family: 'Apercu Pro Regular';
-    font-style: normal;
-    font-display: swap;
-    src: url("//http://ceracare.co.uk/Assets/fonts/Apercu Pro Regular.ttf") format("truetype");
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 textarea,
 body {
-    font-family: 'Apercu Pro Regular';
+    font-family: 'Roboto';
+    font-size: 12px;
+}
+
+label {
+    font-size: 14px;
 }
 
 .control-list {
@@ -26,6 +25,9 @@ body {
     .formSection-label {
         grid-area: 1 / 1 / 2 / 2;
         text-align: left;
+    }
+    .formSection-helpText {
+        display: none;
     }
     .formSection-counter--rowCount {
         grid-area: 1 / 2 / 2 / 3;

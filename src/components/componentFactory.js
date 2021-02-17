@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 // import all of the components that are managed by the factory
 import {RiskQuestion} from './riskQuestion_grid';
 import {PersonalRiskQuestion} from './personalRiskQuestion_grid';
+import {RiskAssessedActivityQuestion} from './riskAssessedActivityQuestion_grid';
 import {OutcomeQuestion} from './outcomeQuestion_grid';
 import {VisitScheduleQuestion} from './visitScheduleQuestion_grid';
 import {NarrativeQuestion} from './narrativeQuestion';
@@ -21,6 +22,7 @@ export const ComponentFactory = ({config}) =>{
     const constructors = { 
         riskQuestion: (config) => <RiskQuestion key={config.id} config={config}/>,
         personalRiskQuestion: (config) => <PersonalRiskQuestion key={config.id} config={config}/>,
+        riskAssessedActivityQuestion: (config) => <RiskAssessedActivityQuestion key={config.id} config={config}/>,
         outcomeQuestion: (config) => <OutcomeQuestion key={config.id} config={config}/>,
         visitScheduleQuestion: (config) => <VisitScheduleQuestion key={config.id} config={config}/>,
         narrativeQuestion: (config) => <NarrativeQuestion key={config.id} config={config}/>,
@@ -44,13 +46,16 @@ export const ComponentFactory = ({config}) =>{
     // build the specified section
     const buildSection = (sectionConfig) => {
 
-        const {name, label, questions} = sectionConfig;
+        const {name, label, questions, helpText} = sectionConfig;
         const id = nanoid();
 
         return (
             <section key={id} id={`section_${id}`} className='formSection'>
                 <input type='checkbox' id={`${name}_${id}--toggle`} className='formSection-toggle--visible'/>
                 <label key={`label_${id}`} htmlFor={`${name}_${id}--toggle`} className='formSection-label'>{label}</label>
+                {helpText ? 
+                    <div className='formSection-helpText'>{helpText}</div> : <></>
+                }
                 <div className='formSection-questionsList'>
                     {questions.map(question => build(question))}
                 </div>
