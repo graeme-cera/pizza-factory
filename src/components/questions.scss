@@ -2,7 +2,7 @@
 textarea,
 body {
     font-family: 'Roboto';
-    font-size: 12px;
+    font-size: 13px;
 }
 
 label {
@@ -10,7 +10,7 @@ label {
 }
 
 .control-list {
-    max-width: 96%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -87,7 +87,7 @@ label {
     }
     &>label {
         order: 1;
-        width: 30rem;
+        width: 15rem;
         margin: 0.5rem 1rem;
     }
     &:not(.disabled):focus-within>textarea {

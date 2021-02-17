@@ -58,6 +58,7 @@ export const PersonalRiskQuestion = ({config, ...props}) =>{
             <ShortCodeTextbox 
                 name={`${name}_riskControlMeasures`} 
                 id={id} 
+                className='smaller'
                 disabled={() => !questionToggle}
                 placeholder='Control measures to reduce risk'
                 shortCodes={shortCodes}

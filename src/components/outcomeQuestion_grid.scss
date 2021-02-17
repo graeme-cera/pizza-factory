@@ -1,7 +1,7 @@
 .question-row.outcomeQuestion {
     &>textarea {
         width: 100%;
-        max-width: 25rem;
+        max-width: 17rem;
         height: 2rem;
         resize: none;
         margin: 0 0.25rem 0 0;
@@ -9,7 +9,7 @@
         border: #ccc 1px solid;
         transition: height 0.3s ease-in;
         &.smaller {
-            max-width: 19.25rem;
+            max-width: 14.75rem;
             margin-left: 0.25rem;
         }
     }
