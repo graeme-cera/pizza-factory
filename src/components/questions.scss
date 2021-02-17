@@ -17,7 +17,7 @@ label {
 .formSection {
     counter-reset: rowCount invalidCount validCount;
     display: grid;
-    grid-template-columns: auto 8rem 8rem 8rem;
+    grid-template-columns: auto 4rem 4rem 4rem;
     grid-template-rows: auto auto;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -34,6 +34,7 @@ label {
     .formSection-counter--rowCount {
         grid-area: 1 / 2 / 2 / 3;
         text-align: center;
+        cursor: help;
         &::after {
             content: counter(rowCount);
         }
@@ -41,6 +42,7 @@ label {
     .formSection-counter--invalidCount {
         grid-area: 1 / 3 / 2 / 4;
         text-align: center;
+        cursor: help;
         &::after {
             content: counter(invalidCount);
         }
@@ -48,6 +50,7 @@ label {
     .formSection-counter--validCount {
         grid-area: 1 / 4 / 2 / 5;
         text-align: center;
+        cursor: help;
         &::after {
             content: counter(validCount);
         }

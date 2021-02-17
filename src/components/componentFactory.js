@@ -59,9 +59,9 @@ export const ComponentFactory = ({config}) =>{
                 <div className='formSection-questionsList'>
                     {questions.map(question => build(question))}
                 </div>
-                <div className='formSection-counter--rowCount'>💬 </div>
-                <div className='formSection-counter--invalidCount'>❌ </div>
-                <div className='formSection-counter--validCount'>✔️ </div>
+                <div className='formSection-counter--rowCount' title='Answered questions'>💬 </div>
+                <div className='formSection-counter--invalidCount'  title='Incomplete fields'>❌ </div>
+                <div className='formSection-counter--validCount' title='Completed fields'>✔️ </div>
             </section>
         );
     }
